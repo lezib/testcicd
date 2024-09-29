@@ -19,7 +19,7 @@ jobs:
 
       # install all depedencies
       - name: Install depedencies
-        run: ./installDependencies.sh
+        run: ./.github/workflows/installDependencies.sh
 
       # Compile the code
       # - name: Build project
