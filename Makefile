@@ -1,7 +1,7 @@
 CC := gcc
 CFLAGS := -Werror -Wall -Wextra 
-TARGET := main
-OBJS := *.c
+TARGET := final
+OBJS := calculator.c
 
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS) -lm -lSDL2 
