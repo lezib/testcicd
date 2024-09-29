@@ -1,23 +1,35 @@
-name: C/C++ CI
+name: C Project CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up GCC
+      - name: Install GCC
+        run: sudo apt-get install gcc make
+
+      # install depedencies
+      - name: Install depedencies
+        run: sudo apt-get install libcunit1 libcunit1-doc libcunit1-dev # install Cunit
+        run: sudo apt-get install libsdl2-2.0-0 libsdl2-dev # install SDL2
+
+      # Compile the code
+      # - name: Build project
+        # run: make
+
+      # Run tests
+      - name: Run tests
+        run: make test
