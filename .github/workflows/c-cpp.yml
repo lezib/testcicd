@@ -19,12 +19,31 @@ jobs:
 
       # install all depedencies
       - name: Install depedencies
-        run: ./.github/workflows/installDependencies.sh
+        run: ./installDependencies.sh
 
       # Compile the code
-      # - name: Build project
-        # run: make
+      - name: Build project
+        run: make
 
-      # Run tests
-      - name: Run tests
-        run: make test
+      - name: Remove binary after build
+        run: make clean
+
+  test_suite:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install GCC and CUnit
+        run: ./installDependencies.sh
+
+      - name: Compile unit tests (suite 1)
+        run: make test_suite
+
+      - name: Run unit tests (suite 1)
+        run: ./test_suite  # Exécution de la première suite de tests
+
+      - name: Remove test binary after execution
+        run: make clean
