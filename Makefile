@@ -11,4 +11,4 @@ test_suite : ./tests/tests.c
 
 .PHONY: clean
 clean :
-	rm -r *.o $(TARGET)
+	rm -r $(TARGET)
