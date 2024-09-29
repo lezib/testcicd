@@ -17,14 +17,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Set up GCC
-      - name: Install GCC
-        run: sudo apt-get install gcc make
-
-      # install depedencies
+      # install all depedencies
       - name: Install depedencies
-        run: sudo apt-get install libcunit1 libcunit1-doc libcunit1-dev # install Cunit
-        run: sudo apt-get install libsdl2-2.0-0 libsdl2-dev # install SDL2
+        run: ./installDependencies.sh
 
       # Compile the code
       # - name: Build project
