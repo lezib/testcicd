@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-int main()
-{
-	printf("ca c'est du main de fou furieux\n");
-	return 0;
+void pri(char *str) {
+	printf(str);
 }
+
+
