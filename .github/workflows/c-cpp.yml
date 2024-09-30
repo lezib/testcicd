@@ -43,9 +43,8 @@ jobs:
       - name: Install SDL2 and CUnit dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install cmake libsdl2-2.0-0 libsdl2-dev # install SDL2
+          sudo apt-get install libsdl2-2.0-0 libsdl2-dev # install SDL2
           sudo apt-get install libcunit1 libcunit1-doc libcunit1-dev # install Cunit
-          sudo apt-get install libsdl2-image-dev libsdl2-image-2.0-0 -y
 
       - name: Build the project with tests
         run: |
@@ -68,9 +67,8 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install cmake libsdl2-2.0-0 libsdl2-dev # install SDL2
+          sudo apt-get install libsdl2-2.0-0 libsdl2-dev # install SDL2
           sudo apt-get install libcunit1 libcunit1-doc libcunit1-dev # install Cunit
-          sudo apt-get install libsdl-image1.2-dev
 
       - name: Run tests
         run: |
