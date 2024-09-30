@@ -17,10 +17,10 @@ testsuite: $(OBJ_TESTS)
 
 # Règles de compilation
 calculator.o: calculator.c
-	$(CC) $(CFLAGS) -c calculator.c
+	$(CC) $(CFLAGS) -c calculator.c $(LIBS)
 
 tests/tests.o: tests/tests.c
-	$(CC) $(CFLAGS) -DTEST_MODE -c tests/tests.c
+	$(CC) $(CFLAGS) -DTEST_MODE -c tests/tests.c $(LIBS)
 
 # Nettoyage
 clean:
