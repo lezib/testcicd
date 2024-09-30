@@ -73,4 +73,5 @@ jobs:
 
       - name: Run tests
         run: |
+          make testsuite
           ./testsuite
