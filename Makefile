@@ -1,7 +1,7 @@
 # Variables
 CC = gcc
 CFLAGS := -Werror -Wall -Wextra 
-LIBS = -lSDL2 -lSDL2_image -lcunit
+LIBS = -lSDL2 -lcunit
 
 # Fichiers objets
 OBJ_MAIN = calculator.o
