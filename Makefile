@@ -1,7 +1,8 @@
 # Variables
 CC = gcc
 CFLAGS := -Werror -Wall -Wextra 
-LIBS = -lSDL2 -lcunit
+LIBS_MAIN = -lSDL2
+LIBS_TEST = -lSDL2 -lcunit
 
 # Fichiers objets
 OBJ_MAIN = calculator.c
@@ -9,11 +10,11 @@ OBJ_TESTS = calculator.c tests/tests.c
 
 # Cible principale (application)
 calculator: $(OBJ_MAIN)
-	$(CC) $(CFLAGS) -o calculator $(OBJ_MAIN) $(LIBS)
+	$(CC) $(CFLAGS) -o calculator $(OBJ_MAIN) $(LIBS_MAIN)
 
 # Cible pour les tests (avec TEST_MODE)
 testsuite: $(OBJ_TESTS)
-	$(CC) $(CFLAGS) -DTEST_MODE -o testsuite $(OBJ_TESTS) $(LIBS)
+	$(CC) $(CFLAGS) -DTEST_MODE -o testsuite $(OBJ_TESTS) $(LIBS_TEST)
 
 # Règles de compilation
 # calculator.o: calculator.c
