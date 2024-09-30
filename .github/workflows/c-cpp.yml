@@ -1,53 +1,3 @@
-# name: C Project CI
-#
-# on:
-#   push:
-#     branches:
-#       - main
-#   pull_request:
-#     branches:
-#       - main
-#
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#
-#     steps:
-#       # Checkout the repository
-#       - name: Checkout code
-#         uses: actions/checkout@v3
-#
-#       # install all depedencies
-#       - name: Install depedencies
-#         run: ./installDependencies.sh
-#
-#       # Compile the code
-#       - name: Build project
-#         run: make
-#
-#       - name: Remove binary after build
-#         run: make clean
-#
-#   test_suite:
-#     runs-on: ubuntu-latest
-#     needs: build
-#
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v3
-#
-#       - name: Install GCC and CUnit
-#         run: ./installDependencies.sh
-#
-#       - name: Compile unit tests (suite 1)
-#         run: make test_suite
-#
-#       - name: Run unit tests (suite 1)
-#         run: ./test_suite  # Exécution de la première suite de tests
-#
-#       - name: Remove test binary after execution
-#         run: make clean
-#
 name: C Project CI
 
 on:
@@ -70,10 +20,11 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install cmake libsdl2-2.0-0 libsdl2-dev # install SDL2
+          sudo apt-get install libsdl-image1.2-dev
 
       - name: Build the project
         run: |
-          make
+          make calculator
 
       - name: Archive the build artifacts
         uses: actions/upload-artifact@v3
@@ -94,10 +45,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install cmake libsdl2-2.0-0 libsdl2-dev # install SDL2
           sudo apt-get install libcunit1 libcunit1-doc libcunit1-dev # install Cunit
+          sudo apt-get install libsdl-image1.2-dev
 
       - name: Build the project with tests
         run: |
-          make test_suite
+          make testsuite
 
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
@@ -118,7 +70,8 @@ jobs:
           sudo apt-get update
           sudo apt-get install cmake libsdl2-2.0-0 libsdl2-dev # install SDL2
           sudo apt-get install libcunit1 libcunit1-doc libcunit1-dev # install Cunit
+          sudo apt-get install libsdl-image1.2-dev
 
       - name: Run tests
         run: |
-          ./test_suite
+          ./testsuite
