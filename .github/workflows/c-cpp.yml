@@ -73,9 +73,6 @@ jobs:
 
       - name: Build the project
         run: |
-          mkdir -p build
-          cd build
-          cmake ..
           make
 
       - name: Archive the build artifacts
@@ -100,10 +97,7 @@ jobs:
 
       - name: Build the project with tests
         run: |
-          mkdir -p build
-          cd build
-          cmake -DTESTS=ON ..
-          make
+          make test_suite
 
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
@@ -127,5 +121,4 @@ jobs:
 
       - name: Run tests
         run: |
-          cd build
-          ./testsuite
+          ./test_suite

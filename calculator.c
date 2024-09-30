@@ -6,7 +6,7 @@ void pri() {
 
 int main() {
 	pri();
-	return 0
+	return 0;
 }
 
 
