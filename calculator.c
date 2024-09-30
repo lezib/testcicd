@@ -1,7 +1,12 @@
 #include <stdio.h>
 
-void pri(char *str) {
-	printf(str);
+void pri() {
+	printf("ca c'est du main de fou furieux");
+}
+
+int main() {
+	pri();
+	return 0
 }
 
 
